@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap");
+
+/* Design tokens from assets/common.css */
+:root {
+  /* Colors */
+  --color-ffffff: #ffffff;
+  --color-d6d7ef: #d6d7ef;
+  --color-9395d3: #9395d3;
+  --color-8b8787: #8b8787;
+  --color-000000: #000000;
+  --color-d1d1d6: #d1d1d6;
+  --color-ebebf5: #ebebf5;
+  --color-34c759: #34c759;
+  --color-ffd60a: #ffd60a;
+  --color-b3b7ee: #b3b7ee;
+
+  /* Typography (Jost) */
+  --font-family-jost: "Jost", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+  /* Typo scales (from typography_ref) */
+  --typo-6-size: 10px;  --typo-6-weight: 400;  --typo-6-line: 14.45px; --typo-6-color: var(--color-9395d3);
+  --typo-7-size: 10px;  --typo-7-weight: 400;  --typo-7-line: 14.45px; --typo-7-color: var(--color-8b8787);
+  --typo-8-size: 24px;  --typo-8-weight: 600;  --typo-8-line: 34.68px; --typo-8-color: var(--color-ffffff);
+  --typo-9-size: 13px;  --typo-9-weight: 600;  --typo-9-line: 18.785px; --typo-9-color: var(--color-9395d3);
+  --typo-10-size: 10px; --typo-10-weight: 400; --typo-10-line: 14.45px; --typo-10-color: var(--color-000000);
+  --typo-11-size: 16px; --typo-11-weight: 400; --typo-11-line: 23.12px; --typo-11-color: var(--color-8b8787);
+  --typo-13-size: 15px; --typo-13-weight: 400; --typo-13-line: 21.675px; --typo-13-color: var(--color-ffffff);
+
+  /* Border radius tokens */
+  --radius-1: 1px;
+  --radius-15: 15px;
+  --radius-20: 20px;
+
+  /* Shadows (style_21, style_22 use shadow_0) */
+  --shadow-0: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Typography utility classes */
+.typo-6 { font-family: var(--font-family-jost); font-size: var(--typo-6-size); font-weight: var(--typo-6-weight); line-height: var(--typo-6-line); color: var(--typo-6-color); }
+.typo-7 { font-family: var(--font-family-jost); font-size: var(--typo-7-size); font-weight: var(--typo-7-weight); line-height: var(--typo-7-line); color: var(--typo-7-color); }
+.typo-8 { font-family: var(--font-family-jost); font-size: var(--typo-8-size); font-weight: var(--typo-8-weight); line-height: var(--typo-8-line); color: var(--typo-8-color); }
+.typo-9 { font-family: var(--font-family-jost); font-size: var(--typo-9-size); font-weight: var(--typo-9-weight); line-height: var(--typo-9-line); color: var(--typo-9-color); }
+.typo-10 { font-family: var(--font-family-jost); font-size: var(--typo-10-size); font-weight: var(--typo-10-weight); line-height: var(--typo-10-line); color: var(--typo-10-color); }
+.typo-11 { font-family: var(--font-family-jost); font-size: var(--typo-11-size); font-weight: var(--typo-11-weight); line-height: var(--typo-11-line); color: var(--typo-11-color); }
+.typo-13 { font-family: var(--font-family-jost); font-size: var(--typo-13-size); font-weight: var(--typo-13-weight); line-height: var(--typo-13-line); color: var(--typo-13-color); }
+
+/* Resets and base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: #f0f0f0;
+  color: var(--color-000000);
+  font-family: var(--font-family-jost);
+}
+
+/* Centered device screen frame (414 x 896) */
+.screen {
+  position: relative;
+  width: 414px;
+  height: 896px;
+  margin: 20px auto;
+  overflow: hidden;
+  background: var(--color-ffffff);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Common reusable tokens -> classes */
+.bg-white { background-color: var(--color-ffffff); }
+.bg-accent { background-color: var(--color-9395d3); }
+.text-muted { color: var(--color-8b8787); }
+.radius-15 { border-radius: var(--radius-15); }
+.shadow-0 { box-shadow: var(--shadow-0); }
+
+/* Generic icon button placeholder */
+.icon-btn {
+  width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--color-b3b7ee);
+  font-size: 18px; line-height: 1;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.icon-btn:focus { outline: 2px solid rgba(179,183,238,0.4); outline-offset: 2px; }
+
+/* Hidden utility */
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 1px, 1px); white-space: nowrap; border: 0;
+}
+
+/* Status bar shared styles */
+.status-bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 414px; height: 44px;
+  background: transparent;
+  z-index: 2;
+}
+.status-time {
+  position: absolute;
+  left: 17px; top: 15px;
+  height: 21px;
+  display: flex; align-items: center;
+  font-family: var(--font-family-jost);
+  font-weight: 600;
+  color: var(--color-000000);
+}
+.status-icons {
+  position: absolute;
+  right: 14px; top: 16px;
+  display: flex; gap: 4px; align-items: flex-start;
+  height: 14px;
+  color: var(--color-000000);
+  font-size: 10px;
+}
+.status-icons svg { display: block; }
+.icon-tower { width: 20px; height: 14px; }
+.icon-battery { width: 25px; height: 12px; margin-top: 1px; }
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-000000);
+}
+
+/* Input overlays for add/edit pages to match underline fields */
+.field-input {
+  position: absolute;
+  left: 0; top: 2px;
+  width: 100%;
+  height: 24px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-family-jost);
+  font-size: 16px;
+  color: var(--color-000000);
+  padding: 0;
+}

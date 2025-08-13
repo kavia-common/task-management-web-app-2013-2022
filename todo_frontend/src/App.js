@@ -1,49 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import './index.css';
+import './styles/common.css';
+import './styles/TODO_PAGE.css';
+import './styles/EDIT_TODO.css';
+import './styles/ADD_TODO.css';
+import './styles/COMPLETED_TASK.css';
+import { TodosProvider } from './context/TodosContext';
+import TodoPage from './pages/TodoPage';
+import AddTodoPage from './pages/AddTodoPage';
+import EditTodoPage from './pages/EditTodoPage';
+import CompletedPage from './pages/CompletedPage';
 
 // PUBLIC_INTERFACE
-function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
+function AppContainer() {
+  /** Root container setting up providers and routes */
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodosProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<TodoPage />} />
+          <Route path="/add" element={<AddTodoPage />} />
+          <Route path="/edit/:id" element={<EditTodoPage />} />
+          <Route path="/completed" element={<CompletedPage />} />
+          {/* Fallback */}
+          <Route path="*" element={<TodoPage />} />
+        </Routes>
+      </BrowserRouter>
+    </TodosProvider>
   );
 }
 
-export default App;
+// PUBLIC_INTERFACE
+export default function App() {
+  /** Wrapper to allow future top-level providers if needed */
+  return <AppContainer />;
+}

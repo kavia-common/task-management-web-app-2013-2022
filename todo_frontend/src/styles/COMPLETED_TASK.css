@@ -1,0 +1,56 @@
+.screen--completed-task { }
+.completed-bg-rect {
+  position: absolute;
+  left: 0px; top: 0px;
+  width: 414px; height: 896px;
+  background: var(--color-d6d7ef);
+}
+
+/* App Bar */
+.app-bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 414px; height: 118px;
+  background: var(--color-9395d3);
+  z-index: 1;
+}
+.back-btn {
+  position: absolute;
+  left: 26px; top: 78px;
+  width: 25px; height: 25px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-ffffff);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.back-btn:focus { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 2px; }
+.app-title { position: absolute; left: 88px; top: 61px; }
+
+/* Todos container */
+.todos {
+  position: absolute;
+  left: 7px; top: 189px;
+  width: 400px;
+}
+
+/* Todo card */
+.todo-card {
+  position: relative;
+  width: 400px; height: 82px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-15);
+  box-shadow: var(--shadow-0);
+  margin-bottom: 16px;
+}
+
+/* Titles group */
+.todo-titles {
+  position: absolute;
+  left: 19px; top: 22px;
+  width: 124px;
+}
+.todo-title { display: block; }
+.todo-subtitle { display: block; margin-top: 5px; }

@@ -1,0 +1,132 @@
+.screen--todo {
+  /* Frame background overlay */
+}
+.todo-bg-rect {
+  position: absolute;
+  left: 0px; top: 0px;
+  width: 414px; height: 896px;
+  background: var(--color-d6d7ef);
+}
+
+/* Top AppBar (style_2: color_9395d3), height 118 */
+.app-bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 414px; height: 118px;
+  background: var(--color-9395d3);
+  z-index: 1;
+}
+.app-title {
+  position: absolute;
+  left: 19px; top: 60px;
+}
+.calendar-btn {
+  position: absolute;
+  left: 347px; top: 47px;
+  width: 60px; height: 60px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-ffffff);
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.calendar-btn:focus { outline: 3px solid rgba(147,149,211,0.4); outline-offset: 2px; }
+
+/* Todos container (group at left 7, top 140, width 400) */
+.todos {
+  position: absolute;
+  left: 7px; top: 140px;
+  width: 400px;
+}
+
+/* Todo card (style_22: bg white, radius 15, shadow_0), height 82, vertical gap ~21 */
+.todo-card {
+  position: relative;
+  width: 400px; height: 82px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-15);
+  box-shadow: var(--shadow-0);
+  margin-bottom: 21px;
+}
+
+/* Titles group: left 26, first line top 22, second line top 46 */
+.todo-titles {
+  position: absolute;
+  left: 26px; top: 22px;
+  width: 240px;
+}
+.todo-title { display: block; }
+.todo-subtitle { display: block; margin-top: 5px; }
+
+/* Action icons */
+.todo-icon {
+  position: absolute; top: 20px; width: 44px; height: 44px;
+}
+.todo-icon.pencil { right: 118px; }
+.todo-icon.trash  { right: 73px; }
+.todo-icon.check  { right: 28px; }
+
+/* Completed state */
+.todo-card[data-completed="true"] .todo-title { text-decoration: line-through; color: var(--color-8b8787); }
+.todo-card[data-completed="true"] .todo-subtitle { color: var(--color-8b8787); }
+.todo-card[data-completed="true"] .todo-icon.check { color: var(--color-34c759); }
+
+/* Floating Add Button (70x70) */
+.fab {
+  position: absolute;
+  left: 322px; top: 737px;
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: var(--color-9395d3);
+  box-shadow: var(--shadow-0);
+  border: none;
+  cursor: pointer;
+}
+.fab:focus { outline: 3px solid rgba(147,149,211,0.4); outline-offset: 2px; }
+.fab .plus {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 21px; height: 24px;
+  transform: translate(-50%, -50%);
+}
+.fab .plus::before,
+.fab .plus::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  background: var(--color-ffffff);
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+.fab .plus::before { width: 21px; height: 3px; }
+.fab .plus::after { width: 3px; height: 21px; }
+
+/* Bottom navigation bar */
+.bottom-nav {
+  position: absolute;
+  left: 0; top: 828px;
+  width: 414px; height: 68px;
+  background: var(--color-ffffff);
+}
+.nav-item {
+  position: absolute;
+  width: 60px; height: 60px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+.nav-item .nav-icon {
+  font-size: 22px;
+  line-height: 30px;
+  height: 30px;
+  color: var(--color-9395d3);
+}
+.nav-item .nav-label {
+  display: block;
+  margin-top: 4px;
+}
+.nav-item[data-active="true"] .nav-label { color: var(--color-9395d3); }
+.nav-item[data-active="false"] .nav-label { color: var(--color-8b8787); }
+.nav-item.all { left: 91px; top: 12px; }
+.nav-item.completed { left: 303px; top: 15px; }
